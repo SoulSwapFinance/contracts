@@ -7,6 +7,7 @@
 - SousChef: [0xecB1BDc02eD102815B18269dF3306E7f5902eA8E](https://testnet.ftmscan.com/address/0xecB1BDc02eD102815B18269dF3306E7f5902eA8E#code) 
 - SoulVault: [0x5b1349fb153f0bf672b55ea87707982acf0b13d9](https://testnet.ftmscan.com/address/0x5b1349fb153f0bf672b55ea87707982acf0b13d9#code) 
 - SoulFactory: [0x8C4999d3dC5930c1156b0483a23Cc27eBDe3AF25](https://testnet.ftmscan.com/address/0x8C4999d3dC5930c1156b0483a23Cc27eBDe3AF25#code) 
+- SoulRouter: [0xAA8D7795593E0103a3093475074D46d3948B7bB1](https://testnet.ftmscan.com/address/0xAA8D7795593E0103a3093475074D46d3948B7bB1#code)
 
 ---
 
