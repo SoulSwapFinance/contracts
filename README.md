@@ -1,13 +1,12 @@
 ## SoulSwap.finance Contracts (Ethereum)
  
 ### FTM Testnet
-SoulToken: [0x81582F803A17a4a454A80600e9185B42E32e0fcF](https://testnet.ftmscan.com/address/) <br />
-SeanceCircle: [0xf9D9b96F213aCC6434f16fff5D932FA85cD179f3](https://testnet.ftmscan.com/address/) <br />
-MasterChef: [0x949855EeECaf8Cb1F194c85e105250717c5E17f4](https://testnet.ftmscan.com/address/) <br />
-SousChef: [0xecB1BDc02eD102815B18269dF3306E7f5902eA8E](https://testnet.ftmscan.com/address/) <br />
-SoulVault: [0x5b1349fb153f0bf672b55ea87707982acf0b13d9](https://testnet.ftmscan.com/address/) <br />
-<br />
-SoulFactory: [0x8C4999d3dC5930c1156b0483a23Cc27eBDe3AF25](https://testnet.ftmscan.com/address/0x8C4999d3dC5930c1156b0483a23Cc27eBDe3AF25#code) <br />
+- SoulToken: [0x81582F803A17a4a454A80600e9185B42E32e0fcF](https://testnet.ftmscan.com/address/0x81582F803A17a4a454A80600e9185B42E32e0fcF#code)
+- SeanceCircle: [0xf9D9b96F213aCC6434f16fff5D932FA85cD179f3](https://testnet.ftmscan.com/address/0xf9D9b96F213aCC6434f16fff5D932FA85cD179f3#code) 
+- MasterChef: [0x949855EeECaf8Cb1F194c85e105250717c5E17f4](https://testnet.ftmscan.com/address/0x949855EeECaf8Cb1F194c85e105250717c5E17f4#code) 
+- SousChef: [0xecB1BDc02eD102815B18269dF3306E7f5902eA8E](https://testnet.ftmscan.com/address/0xecB1BDc02eD102815B18269dF3306E7f5902eA8E#code) 
+- SoulVault: [0x5b1349fb153f0bf672b55ea87707982acf0b13d9](https://testnet.ftmscan.com/address/0x5b1349fb153f0bf672b55ea87707982acf0b13d9#code) 
+- SoulFactory: [0x8C4999d3dC5930c1156b0483a23Cc27eBDe3AF25](https://testnet.ftmscan.com/address/0x8C4999d3dC5930c1156b0483a23Cc27eBDe3AF25#code) 
 
 ---
 
@@ -15,6 +14,6 @@ SoulFactory: [0x8C4999d3dC5930c1156b0483a23Cc27eBDe3AF25](https://testnet.ftmsca
 
 | Deposit Token | Address | 
 | --- | --- | 
-| [SOUL/ETH LP](https://etherscan.io/address/) | 0x... |
+| [SoulToken](https://etherscan.io/address/) | 0x... |
 
 ---
