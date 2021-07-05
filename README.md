@@ -1,4 +1,4 @@
-## SoulSwap.finance Contracts (Ethereum)
+## SoulSwap.finance Contracts (Fantom)
  
 ### FTM Testnet
 - SoulToken: [0x81582F803A17a4a454A80600e9185B42E32e0fcF](https://testnet.ftmscan.com/address/0x81582F803A17a4a454A80600e9185B42E32e0fcF#code)
