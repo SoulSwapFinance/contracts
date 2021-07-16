@@ -14,8 +14,8 @@
 
 ### Example Table Format
 
-| Deposit Token | Address | 
+| LP Token | Address | 
 | --- | --- | 
-| [SoulToken](https://etherscan.io/address/) | 0x... |
+| [SOUL/WFTM](https://etherscan.io/address/0xA4AdeF05ec33720ae9Bfd2B7d34fC47Aee0b0Ee3) | 0xA4AdeF05ec33720ae9Bfd2B7d34fC47Aee0b0Ee3 |
 
 ---
