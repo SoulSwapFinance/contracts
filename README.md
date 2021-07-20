@@ -17,6 +17,7 @@
 
 | MasterChef PID | LP Token | Address | 
 | --- | --- | --- | 
-| 1 | [SOUL/WFTM](https://etherscan.io/address/0x83ffaB56812e52eBa1fACA9E9d894c9a912e7Bf2) | 0x83ffaB56812e52eBa1fACA9E9d894c9a912e7Bf2 |
+| 0 | [SOUL](https://testnet.ftmscan.com/address/0xfF84964E7A446466669da84be6c72Fe10eA786cF#code) | 0xfF84964E7A446466669da84be6c72Fe10eA786cF|
+| 1 | [SOUL/WFTM](https://testnet.ftmscan.com/address/0x83ffaB56812e52eBa1fACA9E9d894c9a912e7Bf2#code) | 0x83ffaB56812e52eBa1fACA9E9d894c9a912e7Bf2 |
 
 ---
