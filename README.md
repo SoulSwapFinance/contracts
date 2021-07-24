@@ -14,6 +14,8 @@
 | [Presale.sol](https://testnet.ftmscan.com/address/0x994B93740956E1693Ff95aD4d4414990bF562340#code) | 0x994B93740956E1693Ff95aD4d4414990bF562340 |
 | [SoulSale.sol](https://testnet.ftmscan.com/address/#code) | COMING SOON (: |
 
+Backup SoulToken.sol : https://testnet.ftmscan.com/address/0x7A29977e3cB7138de434D968140f432fdB970d7F#code (24/07/2021)
+
 ----
 
 ### MasterChef Pids
