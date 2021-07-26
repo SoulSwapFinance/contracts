@@ -13,7 +13,7 @@
 | [SoulFactory.sol](https://testnet.ftmscan.com/address/0xD648477c22997E94e52a6Cb666fA0B91c44ed185#code) | 0xD648477c22997E94e52a6Cb666fA0B91c44ed185 |
 | [SoulRouter.sol](https://testnet.ftmscan.com/address/0xAf34910C47f372f629e91C53B9dBFdC288cF423f#code) | 0xAf34910C47f372f629e91C53B9dBFdC288cF423f |
 | [Multicall.sol](https://testnet.ftmscan.com/address/0x1ACB479bB9D1F73009F85ef5F495E942Bb57f15A#code) | 0x1ACB479bB9D1F73009F85ef5F495E942Bb57f15A |
-| [Ceremony.sol](https://testnet.ftmscan.com/address/0xf8270Cb99a37a39Bdd82cb42e985d64A4f5FbC92#code) | 0xf8270Cb99a37a39Bdd82cb42e985d64A4f5FbC92 |
+| [Ceremony.sol](https://testnet.ftmscan.com/address/0x6d3a8dc5e01e839d9483d9513e33790fe1d6ffd2#code) | 0x6d3a8dc5e01e839d9483d9513e33790fe1d6ffd2 |
 | [SoulSale.sol](https://testnet.ftmscan.com/address/#code) | COMING SOON (: |
 
 ----
