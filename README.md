@@ -14,8 +14,6 @@
 | [SoulRouter.sol](https://testnet.ftmscan.com/address/0xAf34910C47f372f629e91C53B9dBFdC288cF423f#code) | 0xAf34910C47f372f629e91C53B9dBFdC288cF423f |
 | [Multicall.sol](https://testnet.ftmscan.com/address/0x1ACB479bB9D1F73009F85ef5F495E942Bb57f15A#code) | 0x1ACB479bB9D1F73009F85ef5F495E942Bb57f15A |
 | [Ceremony.sol](https://testnet.ftmscan.com/address/0xb9F9Dfab888B50565F3b5dfFFc38a0FAEEfA6E2d#code) | 0xb9F9Dfab888B50565F3b5dfFFc38a0FAEEfA6E2d |
-| [SoulSale.sol](https://testnet.ftmscan.com/address/#code) | COMING SOON (: |
-
 ----
 
 ### MasterChef Pids
@@ -26,3 +24,13 @@
 | 1 | [SOUL/WFTM](https://testnet.ftmscan.com/address/0x83ffaB56812e52eBa1fACA9E9d894c9a912e7Bf2#code) | 0x83ffaB56812e52eBa1fACA9E9d894c9a912e7Bf2 |
 
 ---
+
+### Fantom Testnet V2
+| Contract | Address | 
+| --- | --- | 
+| [SoulPower.sol](https://testnet.ftmscan.com/address/0xBa6204f47b4Db2a22D7C4227569cEa3C8aD448DC/#code) | 0xBa6204f47b4Db2a22D7C4227569cEa3C8aD448DC |
+| [SeanceCircle.sol](https://testnet.ftmscan.com/address/0xba34A07d0282A023e08ceb6098E59dFBEbE9f1E1#code) | 0xba34A07d0282A023e08ceb6098E59dFBEbE9f1E1 |
+| [SpellBound.sol](https://testnet.ftmscan.com/address/0x399e4510941E94429bF282BEc540300476B8A8Fb#code) | 0x399e4510941E94429bF282BEc540300476B8A8Fb |
+| [SoulVault.sol (Spell)](https://testnet.ftmscan.com/address/0x0F76C3372A9b572C964425C0ad82b8899D8F3A68#code) | 0x0F76C3372A9b572C964425C0ad82b8899D8F3A68 |
+| [SoulSummoner.sol](https://testnet.ftmscan.com/address/0xd18dEfcd37cD4BbA23287611DC48a116CB127E27/#code) | 0xd18dEfcd37cD4BbA23287611DC48a116CB127E27 |
+----
