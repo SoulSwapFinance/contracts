@@ -13,7 +13,7 @@
 | [SoulFactory.sol](https://testnet.ftmscan.com/address/0xD648477c22997E94e52a6Cb666fA0B91c44ed185#code) | 0xD648477c22997E94e52a6Cb666fA0B91c44ed185 |
 | [SoulRouter.sol](https://testnet.ftmscan.com/address/0xAf34910C47f372f629e91C53B9dBFdC288cF423f#code) | 0xAf34910C47f372f629e91C53B9dBFdC288cF423f |
 | [Multicall.sol](https://testnet.ftmscan.com/address/0x1ACB479bB9D1F73009F85ef5F495E942Bb57f15A#code) | 0x1ACB479bB9D1F73009F85ef5F495E942Bb57f15A |
-| [Ceremony.sol](https://testnet.ftmscan.com/address/0xb9F9Dfab888B50565F3b5dfFFc38a0FAEEfA6E2d#code) | 0xb9F9Dfab888B50565F3b5dfFFc38a0FAEEfA6E2d |
+| [Ceremony.sol](https://testnet.ftmscan.com/address/0xfa261468065020c999518705B31a5de17F2D89AC#code) | 0xfa261468065020c999518705B31a5de17F2D89AC |
 ----
 
 ### MasterChef Pids
