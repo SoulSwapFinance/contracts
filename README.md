@@ -28,9 +28,9 @@
 ### Fantom Testnet V2
 | Contract | Address | 
 | --- | --- | 
-| [SoulPower.sol](https://testnet.ftmscan.com/address/0xBa6204f47b4Db2a22D7C4227569cEa3C8aD448DC/#code) | 0xBa6204f47b4Db2a22D7C4227569cEa3C8aD448DC |
-| [SeanceCircle.sol](https://testnet.ftmscan.com/address/0xba34A07d0282A023e08ceb6098E59dFBEbE9f1E1#code) | 0xba34A07d0282A023e08ceb6098E59dFBEbE9f1E1 |
-| [SpellBound.sol](https://testnet.ftmscan.com/address/0x399e4510941E94429bF282BEc540300476B8A8Fb#code) | 0x399e4510941E94429bF282BEc540300476B8A8Fb |
-| [SoulVault.sol (Spell)](https://testnet.ftmscan.com/address/0x0F76C3372A9b572C964425C0ad82b8899D8F3A68#code) | 0x0F76C3372A9b572C964425C0ad82b8899D8F3A68 |
-| [SoulSummoner.sol](https://testnet.ftmscan.com/address/0xd18dEfcd37cD4BbA23287611DC48a116CB127E27/#code) | 0xd18dEfcd37cD4BbA23287611DC48a116CB127E27 |
+| [SoulPower.sol](https://testnet.ftmscan.com/address/0xBa6204f47b4Db2a22D7C4227569cEa3C8aD448DC/#code) | 0x7840E2c6Ee108eF4570f97e48d6E7e509eF2fC20 |
+| [SeanceCircle.sol](https://testnet.ftmscan.com/address/#code) |  |
+| [SpellBound.sol](https://testnet.ftmscan.com/address/#code) |  |
+| [SoulVault.sol (Spell)](https://testnet.ftmscan.com/address/#code) |  |
+| [SoulSummoner.sol](https://testnet.ftmscan.com/address//#code) |  |
 ----
