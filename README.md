@@ -28,7 +28,7 @@
 ### Fantom Testnet V2
 | Contract | Address | 
 | --- | --- | 
-| [SoulPower.sol](https://testnet.ftmscan.com/address/0x8a8B7d7282d638971b9d18324e0C6F721e1B3f98/#code) | 0x8a8B7d7282d638971b9d18324e0C6F721e1B3f98 |
+| [SoulPower.sol](https://testnet.ftmscan.com/address/0xCF174A6793FA36A73e8fF18A71bd81C985ef5aB5/#code) | 0xCF174A6793FA36A73e8fF18A71bd81C985ef5aB5 |
 | [SeanceCircle.sol](https://testnet.ftmscan.com/address/#code) |  |
 | [SpellBound.sol](https://testnet.ftmscan.com/address/#code) |  |
 | [SoulVault.sol (Spell)](https://testnet.ftmscan.com/address/#code) |  |
