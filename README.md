@@ -17,7 +17,7 @@
 
 ----
 
-### MasterChef Pids
+### Fantom: Testnet - SoulSummoner Pids
 
 | PID | LP Token | Address | 
 | --- | --- | --- | 
