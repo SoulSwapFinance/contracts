@@ -29,8 +29,8 @@
 | Contract | Address | 
 | --- | --- | 
 | [SoulPower.sol](https://testnet.ftmscan.com/address/0xCF174A6793FA36A73e8fF18A71bd81C985ef5aB5/#code) | 0xCF174A6793FA36A73e8fF18A71bd81C985ef5aB5 |
-| [SeanceCircle.sol](https://testnet.ftmscan.com/address/#code) |  |
-| [SpellBound.sol](https://testnet.ftmscan.com/address/#code) |  |
-| [SoulVault.sol (Spell)](https://testnet.ftmscan.com/address/#code) |  |
-| [SoulSummoner.sol](https://testnet.ftmscan.com/address//#code) |  |
+| [SeanceCircle.sol](https://testnet.ftmscan.com/address/0xD858E1a257Cb595Ba395520daD4c9C9592307734/#code) | 0xD858E1a257Cb595Ba395520daD4c9C9592307734 |
+| [SpellBound.sol](https://testnet.ftmscan.com/address/0xdFDC55e7E7eBA3E7BF2a0E0743f4D3C858FaC37E/#code) | 0xdFDC55e7E7eBA3E7BF2a0E0743f4D3C858FaC37E |
+| [SoulVault.sol (Spell)](https://testnet.ftmscan.com/address/0x1120e150dA9def6Fe930f4fEDeD18ef57c0CA7eF/#code) | 0x1120e150dA9def6Fe930f4fEDeD18ef57c0CA7eF |
+| [SoulSummoner.sol](https://testnet.ftmscan.com/address/0xA65DbEA56E1E202bf03dB5f49ba565fb00Bf9288/#code) | 0xA65DbEA56E1E202bf03dB5f49ba565fb00Bf9288 |
 ----
