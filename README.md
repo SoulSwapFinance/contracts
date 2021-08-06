@@ -14,6 +14,9 @@
 | [SoulSummoner.sol](https://testnet.ftmscan.com/address/0xA65DbEA56E1E202bf03dB5f49ba565fb00Bf9288/#code) | 0xA65DbEA56E1E202bf03dB5f49ba565fb00Bf9288 |
 | | |
 | [Ceremony.sol](https://testnet.ftmscan.com/address/0xd0C2cd2d456F6F14c0c7d8E3FA69A3695D850513#code) | 0xd0C2cd2d456F6F14c0c7d8E3FA69A3695D850513 |
+| | |
+| [Dao Multi-sig](https://safe.testnet.fantom.network/#/safes/0x2ffbDFB8f48EDD34Cb2727F4357d321bD71ddF25/balances) | 0x2ffbDFB8f48EDD34Cb2727F4357d321bD71ddF25 |
+| [Dev Multi-sig](https://safe.testnet.fantom.network/#/safes/0x24D9E0Ba5d79C15D7EEAbD632214430D6F1677cA/balances) | 0x24D9E0Ba5d79C15D7EEAbD632214430D6F1677cA |
 
 ----
 
