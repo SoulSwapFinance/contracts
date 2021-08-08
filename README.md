@@ -4,7 +4,7 @@
 | Contract | Address | 
 | --- | --- | 
 | [SoulPower.sol](https://ftmscan.com/address/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/#code) | 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07 |
-| [Ceremony.sol](https://ftmscan.com/address/0x791986b546Ad5BcFe2C117E138Db9F9ce693bedA#code) | 0x791986b546Ad5BcFe2C117E138Db9F9ce693bedA |
+| [Ceremony.sol](https://ftmscan.com/address/0x53d09e34fE062217E9E52B0c3627CEA2f169617D#code) | 0x53d09e34fE062217E9E52B0c3627CEA2f169617D |
 
 ----
 
