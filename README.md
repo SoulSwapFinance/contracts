@@ -1,5 +1,12 @@
 ## SoulSwap.finance Contracts
 
+### Fantom: Opera
+| Contract | Address | 
+| --- | --- | 
+| [SoulPower.sol](https://ftmscan.com/address/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/#code) | 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07 |
+
+----
+
 ### Fantom: Testnet - BETA
 | Contract | Address | 
 | --- | --- | 
