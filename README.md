@@ -8,6 +8,7 @@
 | [SoulSwapFactory.sol](https://ftmscan.com/address/0x91c0d9987E1Ea80E94ca702b5B4906E6bbAb308C#code) | 0x91c0d9987E1Ea80E94ca702b5B4906E6bbAb308C |
 | [SoulSwapRouter.sol](https://ftmscan.com/address/0x994889A5a2BcfAB67e5242996e1331b74d777834#code) | 0x994889A5a2BcfAB67e5242996e1331b74d777834 |
 | [Multicall.sol](https://ftmscan.com/address/0xEd2Fb478f7fCef33E1E1d980a0135789B295a7F5#code) | 0xEd2Fb478f7fCef33E1E1d980a0135789B295a7F5 |
+| [SoulSwapInterfaceMulticall.sol](https://ftmscan.com/address/0x1245Af167E1C2803b713af29F3C121b191a19366#code) | 0x1245Af167E1C2803b713af29F3C121b191a19366 |
 
 
 ----
