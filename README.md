@@ -5,6 +5,10 @@
 | --- | --- | 
 | [SoulPower.sol](https://ftmscan.com/address/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/#code) | 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07 |
 | [Ceremony.sol](https://ftmscan.com/address/0x05d4e2948F2407BD9dAFe4f74253AfE2296456B8#code) | 0x05d4e2948F2407BD9dAFe4f74253AfE2296456B8 |
+| [SoulSwapFactory.sol](https://ftmscan.com/address/0x91c0d9987E1Ea80E94ca702b5B4906E6bbAb308C#code) | 0x91c0d9987E1Ea80E94ca702b5B4906E6bbAb308C |
+| [SoulSwapRouter.sol](https://ftmscan.com/address/0x994889A5a2BcfAB67e5242996e1331b74d777834#code) | 0x994889A5a2BcfAB67e5242996e1331b74d777834 |
+
+
 
 ----
 
