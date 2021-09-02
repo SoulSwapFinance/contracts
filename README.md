@@ -5,8 +5,8 @@
 | --- | --- | 
 | [SoulPower.sol](https://ftmscan.com/address/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07/#code) | 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07 |
 | [Ceremony.sol](https://ftmscan.com/address/0x05d4e2948F2407BD9dAFe4f74253AfE2296456B8#code) | 0x05d4e2948F2407BD9dAFe4f74253AfE2296456B8 |
-| [SoulSwapFactory.sol](https://ftmscan.com/address/0x69fcC260353530DE3fB8D0897ae821fCc2c81f0f#code) | 0x69fcC260353530DE3fB8D0897ae821fCc2c81f0f |
-| [SoulSwapRouter.sol](https://ftmscan.com/address/0x2CDa3B64Da9c1b7F18891E1567bc43eD558D089b#code) | 0x2CDa3B64Da9c1b7F18891E1567bc43eD558D089b |
+| [SoulSwapFactory.sol](https://ftmscan.com/address/0x1120e150dA9def6Fe930f4fEDeD18ef57c0CA7eF#code) | 0x1120e150dA9def6Fe930f4fEDeD18ef57c0CA7eF |
+| [SoulSwapRouter.sol](https://ftmscan.com/address/0x6b3d631B87FE27aF29efeC61d2ab8CE4d621cCBF#code) | 0x6b3d631B87FE27aF29efeC61d2ab8CE4d621cCBF |
 | [Multicall.sol](https://ftmscan.com/address/0xEd2Fb478f7fCef33E1E1d980a0135789B295a7F5#code) | 0xEd2Fb478f7fCef33E1E1d980a0135789B295a7F5 |
 | [SoulSwapInterfaceMulticall.sol](https://ftmscan.com/address/0x1245Af167E1C2803b713af29F3C121b191a19366#code) | 0x1245Af167E1C2803b713af29F3C121b191a19366 |
 
