@@ -35,7 +35,7 @@
 
 ### Fantom: Testnet - SoulSummoner Pids
 
-[SoulSummoner](https://testnet.ftmscan.com/address/0x26012769dB3737D55F6FE885e34D00002Ffd7361#code) | 0x26012769dB3737D55F6FE885e34D00002Ffd7361|
+[SoulSummoner](https://testnet.ftmscan.com/address/0xED5EDb2a173042d9AA07c10B49ebaf31c16eA9D2#code) | 0xED5EDb2a173042d9AA07c10B49ebaf31c16eA9D2|
 
 | PID | LP Token | Address | 
 | --- | --- | --- | 
