@@ -41,7 +41,7 @@
 
 | PID | LP Token | Address | 
 | --- | --- | --- | 
-| 0 | [SOUL](https://testnet.ftmscan.com/address/0x9890D94DeFf27cBAb150455DCA85c8fd3A242b6E#code) | 0xCF174A6793FA36A73e8fF18A71bd81C985ef5aB5
+| 0 | [SOUL](https://testnet.ftmscan.com/address/0x9890D94DeFf27cBAb150455DCA85c8fd3A242b6E#code) | 0x9890D94DeFf27cBAb150455DCA85c8fd3A242b6E
 | 1 | [SOUL/FUSD](https://testnet.ftmscan.com/address/0xaf02fd55F297f2a591367F6E33Dc600Ff2Be472A#code) | 0xaf02fd55F297f2a591367F6E33Dc600Ff2Be472A |
 | 2 | [SOUL/WFTM](https://testnet.ftmscan.com/address/0x10c0AFd7C58916C4025d466E11850c7D79219277#code) | 0x10c0AFd7C58916C4025d466E11850c7D79219277 |
 | 3 | [WFTM/FETH](https://testnet.ftmscan.com/address/0x5215981e81f0636A5f806fd20A0E0E180d9aaa68#code) | 0x5215981e81f0636A5f806fd20A0E0E180d9aaa68 |
