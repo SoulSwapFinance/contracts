@@ -37,15 +37,15 @@
 
 | Contract | Address | 
 | --- | --- | 
-| [SoulSummoner.sol](https://testnet.ftmscan.com/address/0x26012769dB3737D55F6FE885e34D00002Ffd7361/#code) | 0x26012769dB3737D55F6FE885e34D00002Ffd7361 |
+| [SoulSummoner.sol](https://testnet.ftmscan.com/address/0x486cFE9D6fE345b14Dff154072cFF0FF6e91fC83/#code) | 0x26012769dB3737D55F6FE885e34D00002Ffd7361 |
 | [SeanceCircle.sol](https://testnet.ftmscan.com/address/0x9a2A156Ab72d75727ca0A8660198bDd3b0Ef1a7C/#code) | 0x9a2A156Ab72d75727ca0A8660198bDd3b0Ef1a7C |
 
 | PID | LP Token | Address | 
 | --- | --- | --- | 
 | 0 | [SOUL](https://testnet.ftmscan.com/address/0xCF174A6793FA36A73e8fF18A71bd81C985ef5aB5#code) | 0xCF174A6793FA36A73e8fF18A71bd81C985ef5aB5
-| 1 | [SOUL/FUSD](https://testnet.ftmscan.com/address/0xaf02fd55F297f2a591367F6E33Dc600Ff2Be472A#code) | 0xaf02fd55F297f2a591367F6E33Dc600Ff2Be472A |
-| 2 | [SOUL/WFTM](https://testnet.ftmscan.com/address/0x10c0AFd7C58916C4025d466E11850c7D79219277#code) | 0x10c0AFd7C58916C4025d466E11850c7D79219277 |
-| 3 | [WFTM/FETH](https://testnet.ftmscan.com/address/0x5215981e81f0636A5f806fd20A0E0E180d9aaa68#code) | 0x5215981e81f0636A5f806fd20A0E0E180d9aaa68 |
-| 4 | [WFTM/FUSD](https://testnet.ftmscan.com/address/0x306557358e20aea124b16a548597897858d13cb2#code) | 0x306557358e20aea124b16a548597897858d13cb2 |
+| 1 | [SOUL/fUSD](https://testnet.ftmscan.com/address/0xaf02fd55F297f2a591367F6E33Dc600Ff2Be472A#code) | 0xaf02fd55F297f2a591367F6E33Dc600Ff2Be472A |
+| 2 | [SOUL/FTM](https://testnet.ftmscan.com/address/0x10c0AFd7C58916C4025d466E11850c7D79219277#code) | 0x10c0AFd7C58916C4025d466E11850c7D79219277 |
+| 3 | [FTM/fETH](https://testnet.ftmscan.com/address/0x5215981e81f0636A5f806fd20A0E0E180d9aaa68#code) | 0x5215981e81f0636A5f806fd20A0E0E180d9aaa68 |
+| 4 | [FTM/fUSD](https://testnet.ftmscan.com/address/0x306557358e20aea124b16a548597897858d13cb2#code) | 0x306557358e20aea124b16a548597897858d13cb2 |
 
 ---
