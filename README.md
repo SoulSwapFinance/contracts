@@ -39,7 +39,7 @@
 | Contract | Address | 
 | --- | --- | 
 | [SoulSummoner.sol](https://testnet.ftmscan.com/address/0x70C6A37244feD0Fa4e4148D5ffe38a209dCEd714/#code) | 0x70C6A37244feD0Fa4e4148D5ffe38a209dCEd714 |
-| [SeanceCircle.sol](https://testnet.ftmscan.com/address/0x9a2A156Ab72d75727ca0A8660198bDd3b0Ef1a7C/#code) | 0x9a2A156Ab72d75727ca0A8660198bDd3b0Ef1a7C |
+| [SeanceCircle.sol](https://testnet.ftmscan.com/address/0xD54Cf31D5653F4a062f5DA4C83170A5867d04442/#code) | 0xD54Cf31D5653F4a062f5DA4C83170A5867d04442 |
 
 | PID | AP | LP Token | Address | 
 | --- | --- | --- | --- |
