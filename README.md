@@ -34,7 +34,7 @@
 | --- | --- |
 | [WFTM](https://ftmscan.com/address/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83#code) | 0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83 |
 | [fUSD](https://ftmscan.com/address/0xad84341756bf337f5a0164515b1f6f993d194e1f#code) | 0xad84341756bf337f5a0164515b1f6f993d194e1f |
-| [ETH](https://ftmscan.com/address/0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb#code) | 0x74b23882a30290451A17c44f4F05243b6b58C76d |
+| [ETH](https://ftmscan.com/address/0x74b23882a30290451A17c44f4F05243b6b58C76d#code) | 0x74b23882a30290451A17c44f4F05243b6b58C76d |
 | [USDC](https://ftmscan.com/address/0x04068da6c83afcfa0e13ba15a6696662335d5b75#code) | 0x04068da6c83afcfa0e13ba15a6696662335d5b75 |
 
 ----
