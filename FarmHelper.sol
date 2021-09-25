@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.7;
 
+// Created by DeGatchi (26/06/2021) for SoulSwap 
+
 interface ISummoner {
-    function userInfo(uint pid, address user) view returns(uint, uint, uint, uint, uint, uint, uint);
+    function userInfo(uint pid, address user) external view returns(uint, uint, uint, uint, uint, uint, uint);
     function poolInfo(uint pid) external view returns (address, uint, uint, uint);
     function totalAllocPoint() external view returns (uint);
     function soulPerSecond() external view returns (uint);
@@ -63,6 +65,8 @@ contract FarmHelper {
         return (pidAlloc, totalAlloc);
     }
     
+    // note:
+    // yearlySoulFarmRewards = SOUL_PER_YEAR * poolWeight
     function fetchYearlyRewards(uint pid) public view returns (uint _pidAlloc, uint _totalALloc, uint _SoulPerYear) {
         (uint pidAlloc, uint totalAlloc)  = fetchPoolWeight(pid);
         uint SECONDS_PER_YEAR = 31536000;
@@ -81,7 +85,7 @@ contract FarmHelper {
         return (_userBal, _contractBal);
     }
     
-    function fetchPidDetails(uint pid) external view returns (uint summonerLpTokens, uint lpTokenSupply, uint _pidAlloc, uint _totalALloc, uint _SoulPerSeconds, uint tvl) {
+    function fetchPidDetails(uint pid) external view returns (uint summonerLpTokens, uint lpTokenSupply, uint _pidAlloc, uint _totalALloc, uint _SoulPerYear, uint tvl) {
         (uint _summonerLpTokens, uint _lpTokenSupply) = fetchPercOfSupply(pid);
         (uint pidAlloc, uint totalAlloc, uint soulPerSec) = fetchYearlyRewards(pid);
         uint _tvl = fetchTvl(pid);
