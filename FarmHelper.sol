@@ -1,0 +1,90 @@
+// SPDX-License-Identifier: MIT
+pragma solidity 0.8.7;
+
+interface ISummoner {
+    function poolInfo(uint pid) external returns (address, uint, uint, uint);
+    function totalAllocPoint() external returns (uint);
+    function soulPerSecond() external returns (uint);
+}
+
+interface IToken {
+    function totalSupply() external returns (uint);
+    function balanceOf(address) external returns (uint);
+    function token0() external returns (address);
+    function token1() external returns (address);
+}
+
+contract FarmHelper {
+        
+    address SUMMONER_CONTRACT = 0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B;    
+    
+    address FUSD = 0xAd84341756Bf337f5a0164515b1f6F993D194E1f;
+    address USDC = 0x04068DA6C83AFCFA0e13ba15A6696662335D5B75;
+    address WFTM = 0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83;
+    address SOUL = 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07;
+    
+    address ftmUsdcLp = 0x160653F02b6597E7Db00BA8cA826cf43D2f39556;
+    address soulFusdLp = 0x9e7711eAeb652d0da577C1748844407f8Db44a10;
+    
+    
+    function fetchTvl(uint pid) public returns (uint) {
+        (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
+        
+        address token0 = IToken(lpToken).token0();
+        address token1 = IToken(lpToken).token1();
+        
+        uint poolTvl;
+        
+        if (token0 == FUSD || token1 == FUSD || token0 == USDC || token1 == USDC) {
+            if (token0 == FUSD || token0 == USDC)  poolTvl = IToken(token0).balanceOf(lpToken) * 2;
+            else poolTvl = IToken(token1).balanceOf(lpToken) * 2;
+        } else if (token0 == SOUL || token1 == SOUL) {
+            if (token0 == SOUL) poolTvl = IToken(token0).balanceOf(lpToken) * 2;
+            else poolTvl = IToken(token1).balanceOf(lpToken) * 2;
+        } else if (token0 == WFTM || token1 == WFTM) {
+            if (token0 == WFTM) poolTvl = IToken(token0).balanceOf(lpToken) * 2;
+            else poolTvl = IToken(token1).balanceOf(lpToken) * 2;
+        }
+        
+        return poolTvl;
+    }   
+    
+    function fetchPercOfSupply(uint pid) public returns (uint summonerBal, uint totalSupply) {
+        (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
+        uint summonerLpTokens = IToken(lpToken).balanceOf(SUMMONER_CONTRACT);
+        uint lpTokenSupply = IToken(lpToken).totalSupply();
+        return (summonerLpTokens, lpTokenSupply);
+    }
+    
+    function fetchPoolWeight(uint pid) public returns (uint) {
+        (, uint pidAlloc, ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
+        uint totalAlloc = ISummoner(SUMMONER_CONTRACT).totalAllocPoint();
+        return pidAlloc / totalAlloc;
+    }
+    
+    function fetchYearlyRewards(uint pid) public returns (uint) {
+        uint poolWeight = fetchPoolWeight(pid);
+        uint SECONDS_PER_YEAR = 31536000;
+        uint soulPerSec = ISummoner(SUMMONER_CONTRACT).soulPerSecond();
+        uint SOUL_PER_YEAR = SECONDS_PER_YEAR * soulPerSec;
+        return SOUL_PER_YEAR * poolWeight;
+    }
+    
+    function fetchPidDetails(uint pid) external returns (uint summonerLpTokens, uint lpTokenSupply, uint yearlyRewards, uint tvl) {
+        (uint _summonerLpTokens, uint _lpTokenSupply) = fetchPercOfSupply(pid);
+        uint _yearlyRewards = fetchYearlyRewards(pid);
+        uint _tvl = fetchTvl(pid);
+        
+        return (_summonerLpTokens, _lpTokenSupply, _yearlyRewards, _tvl);
+    }
+
+    function fetchTokenRateBals() external returns (uint totalFtm, uint totalUsdc, uint totalSoul, uint totalFusd) {
+        uint _totalFtm = IToken(WFTM).balanceOf(ftmUsdcLp);
+        uint _totalUsdc = IToken(USDC).balanceOf(ftmUsdcLp);
+        
+        uint _totalSoul = IToken(SOUL).balanceOf(soulFusdLp);
+        uint _totalFusd = IToken(FUSD).balanceOf(soulFusdLp);
+        
+        return (_totalFtm, _totalUsdc, _totalSoul, _totalFusd);
+    }
+}
