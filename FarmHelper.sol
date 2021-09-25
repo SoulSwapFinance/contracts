@@ -38,11 +38,11 @@ contract FarmHelper {
         if (token0 == FUSD || token1 == FUSD || token0 == USDC || token1 == USDC) {
             if (token0 == FUSD || token0 == USDC)  poolTvl = IToken(token0).balanceOf(lpToken) * 2;
             else poolTvl = IToken(token1).balanceOf(lpToken) * 2;
-        } else if (token0 == SOUL || token1 == SOUL) {
-            if (token0 == SOUL) poolTvl = IToken(token0).balanceOf(lpToken) * 2;
-            else poolTvl = IToken(token1).balanceOf(lpToken) * 2;
         } else if (token0 == WFTM || token1 == WFTM) {
             if (token0 == WFTM) poolTvl = IToken(token0).balanceOf(lpToken) * 2;
+            else poolTvl = IToken(token1).balanceOf(lpToken) * 2;
+        } else if (token0 == SOUL || token1 == SOUL) {
+            if (token0 == SOUL) poolTvl = IToken(token0).balanceOf(lpToken) * 2;
             else poolTvl = IToken(token1).balanceOf(lpToken) * 2;
         }
         
