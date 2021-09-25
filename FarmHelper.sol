@@ -56,26 +56,26 @@ contract FarmHelper {
         return (summonerLpTokens, lpTokenSupply);
     }
     
-    function fetchPoolWeight(uint pid) public view returns (uint) {
+    function fetchPoolWeight(uint pid) public view returns (uint _pidAlloc, uint _totalAlloc) {
         (, uint pidAlloc, ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
         uint totalAlloc = ISummoner(SUMMONER_CONTRACT).totalAllocPoint();
-        return pidAlloc / totalAlloc;
+        return (pidAlloc, totalAlloc);
     }
     
-    function fetchYearlyRewards(uint pid) public view returns (uint) {
-        uint poolWeight = fetchPoolWeight(pid);
+    function fetchYearlyRewards(uint pid) public view returns (uint _pidAlloc, uint _totalALloc, uint _SoulPerSecond) {
+        (uint pidAlloc, uint totalAlloc)  = fetchPoolWeight(pid);
         uint SECONDS_PER_YEAR = 31536000;
         uint soulPerSec = ISummoner(SUMMONER_CONTRACT).soulPerSecond();
         uint SOUL_PER_YEAR = SECONDS_PER_YEAR * soulPerSec;
-        return SOUL_PER_YEAR * poolWeight;
+        return (pidAlloc, totalAlloc, SOUL_PER_YEAR);
     }
     
-    function fetchPidDetails(uint pid) external view returns (uint summonerLpTokens, uint lpTokenSupply, uint yearlyRewards, uint tvl) {
+    function fetchPidDetails(uint pid) external view returns (uint summonerLpTokens, uint lpTokenSupply, uint _pidAlloc, uint _totalALloc, uint _SoulPerSeconds, uint tvl) {
         (uint _summonerLpTokens, uint _lpTokenSupply) = fetchPercOfSupply(pid);
-        uint _yearlyRewards = fetchYearlyRewards(pid);
+        (uint pidAlloc, uint totalAlloc, uint soulPerSec) = fetchYearlyRewards(pid);
         uint _tvl = fetchTvl(pid);
         
-        return (_summonerLpTokens, _lpTokenSupply, _yearlyRewards, _tvl);
+        return (_summonerLpTokens, _lpTokenSupply, pidAlloc, totalAlloc, soulPerSec, _tvl);
     }
 
     function fetchTokenRateBals() external view returns (uint totalFtm, uint totalUsdc, uint totalSoul, uint totalFusd) {
