@@ -21,13 +21,18 @@
 | [SoulSummoner.sol](https://ftmscan.com/address/0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B#code) | 0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B  |
 | [SeanceCircle.sol](https://ftmscan.com/address/0x124B06C5ce47De7A6e9EFDA71a946717130079E6#code) | 0x124B06C5ce47De7A6e9EFDA71a946717130079E6 |
 
-| PID | AP | LP Token | Address | 
-| --- | --- | --- | --- |
-| 0 | 1000 | [SOUL](https://ftmscan.com/address/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07#code) | 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07 |
-| 1 | 800 | [SOUL/fUSD](https://ftmscan.com/address/0x9e7711eaeb652d0da577c1748844407f8db44a10#code) | 0x9e7711eaeb652d0da577c1748844407f8db44a10 |
-| 2 | 800 | [SOUL/FTM](https://ftmscan.com/address/0xa2527Af9DABf3E3B4979d7E0493b5e2C6e63dC57#code) | 0xa2527Af9DABf3E3B4979d7E0493b5e2C6e63dC57 |
-| 3 | 600 | [FTM/USDC](https://ftmscan.com/address/0x160653f02b6597e7db00ba8ca826cf43d2f39556#code) | 0x160653f02b6597e7db00ba8ca826cf43d2f39556 |
-| 4 | 600 | [FTM/ETH](https://ftmscan.com/address/0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb#code) | 0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb |
+| PID | LP Token | Address | 
+| --- | --- | --- |
+| 0 | [SOUL](https://ftmscan.com/address/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07#code) | 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07 |
+| 1 | [SOUL/FTM](https://ftmscan.com/address/0xa2527Af9DABf3E3B4979d7E0493b5e2C6e63dC57#code) | 0xa2527Af9DABf3E3B4979d7E0493b5e2C6e63dC57 |
+| 2 | [FTM/USDC](https://ftmscan.com/address/0x160653F02b6597E7Db00BA8cA826cf43D2f39556#code) | 0x160653F02b6597E7Db00BA8cA826cf43D2f39556 |
+| 3 | [FUSD/SOUL](https://ftmscan.com/address/0x9e7711eaeb652d0da577c1748844407f8db44a10#code) | 0x9e7711eaeb652d0da577c1748844407f8db44a10 |
+| 4 | [FTM/ETH](https://ftmscan.com/address/0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb#code) | 0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb |
+| 5 | [SOUL/SEANCE](https://ftmscan.com/address/0x8f1E15cD3d5a0bb85B8189d5c6B61BB64398E19b#code) | 0x8f1E15cD3d5a0bb85B8189d5c6B61BB64398E19b |
+| 6 | [FUSD/USDC](https://ftmscan.com/address/0xD5F5E2638d636A98eD4aAEBfd2045441316e0c08#code) | 0xD5F5E2638d636A98eD4aAEBfd2045441316e0c08 |
+| 7 | [USDC/SEANCE](https://ftmscan.com/address/0x98C678d3C7ebeD4a36B84666700d8b5b5Ddc1f79#code) | 0x98C678d3C7ebeD4a36B84666700d8b5b5Ddc1f79 |
+| 8 | [ETH/BTC](https://ftmscan.com/address/#code) | 0x... |
+| 9 | [USDC/DAI](https://ftmscan.com/address/#code) | 0x... |
 
 ----
 | Contract | Address |
