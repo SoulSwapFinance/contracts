@@ -35,14 +35,6 @@
 | 9 | [USDC/DAI](https://ftmscan.com/address/#code) | 0x... |
 
 ----
-| Contract | Address |
-| --- | --- |
-| [WFTM](https://ftmscan.com/address/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83#code) | 0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83 |
-| [fUSD](https://ftmscan.com/address/0xad84341756bf337f5a0164515b1f6f993d194e1f#code) | 0xad84341756bf337f5a0164515b1f6f993d194e1f |
-| [ETH](https://ftmscan.com/address/0x74b23882a30290451A17c44f4F05243b6b58C76d#code) | 0x74b23882a30290451A17c44f4F05243b6b58C76d |
-| [USDC](https://ftmscan.com/address/0x04068da6c83afcfa0e13ba15a6696662335d5b75#code) | 0x04068da6c83afcfa0e13ba15a6696662335d5b75 |
-
-----
 
 ### Fantom: Testnet - BETA
 | Contract | Address | 
@@ -55,7 +47,7 @@
 | [SpellBound.sol](https://testnet.ftmscan.com/address/0xdFDC55e7E7eBA3E7BF2a0E0743f4D3C858FaC37E/#code) | 0xdFDC55e7E7eBA3E7BF2a0E0743f4D3C858FaC37E |
 | | |
 | [SoulVault.sol (Spell)](https://testnet.ftmscan.com/address/0x1120e150dA9def6Fe930f4fEDeD18ef57c0CA7eF/#code) | 0x1120e150dA9def6Fe930f4fEDeD18ef57c0CA7eF |
-| [SoulSummoner.sol](https://testnet.ftmscan.com/address/0x26012769dB3737D55F6FE885e34D00002Ffd7361/#code) | 0x26012769dB3737D55F6FE885e34D00002Ffd7361 |
+| [SoulSummoner.sol](https://testnet.ftmscan.com/tx/0xDf6844bF8A803D387c3f82AA16D7bDEd2FF7D0D7#code) | 0xDf6844bF8A803D387c3f82AA16D7bDEd2FF7D0D7 |
 | | |
 | [Ceremony.sol](https://testnet.ftmscan.com/address/0xd0C2cd2d456F6F14c0c7d8E3FA69A3695D850513#code) | 0xd0C2cd2d456F6F14c0c7d8E3FA69A3695D850513 |
 | | |
