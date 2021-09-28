@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.8;
-
 // Created by DeGatchi (26/06/2021) for SoulSwap 
+pragma solidity 0.8.7;
 
 interface ISummoner {
     function userInfo(uint pid, address user) external view returns(uint, uint, uint, uint, uint, uint, uint);
@@ -23,25 +22,22 @@ interface IToken {
 
 contract FarmHelper {
         
-    address SUMMONER_CONTRACT = 0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B;
+    address SUMMONER_CONTRACT = 0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B;    
+    
     address FUSD = 0xAd84341756Bf337f5a0164515b1f6F993D194E1f;
     address FUSDT = 0x049d68029688eAbF473097a2fC38ef61633A3C7A;
     address USDC = 0x04068DA6C83AFCFA0e13ba15A6696662335D5B75;
     address WFTM = 0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83;
+    address WETH = 0x74b23882a30290451A17c44f4F05243b6b58C76d;
     address SOUL = 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07;
     
     address ftmUsdcLp = 0x160653F02b6597E7Db00BA8cA826cf43D2f39556;
     address soulFusdLp = 0x9e7711eAeb652d0da577C1748844407f8Db44a10;
-
-    ISummoner Summoner = ISummoner(SUMMONER_CONTRACT);
-
-    IToken soul = IToken(SOUL);
-    IToken fusd = IToken(FUSD);
-    IToken usdc = IToken(USDC);
-    IToken wftm = IToken(WFTM);    
+    address ftmEthLp = 0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb;
     
-    function fetchTvl(uint pid) public view returns (uint poolTVL) {
-        (address lpToken, , ,) = Summoner.poolInfo(pid);
+    
+    function fetchTvl(uint pid) public view returns (uint) {
+        (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
         
         address token0 = IToken(lpToken).token0();
         address token1 = IToken(lpToken).token1();
@@ -57,38 +53,40 @@ contract FarmHelper {
         } else if (token0 == SOUL || token1 == SOUL) {
             if (token0 == SOUL) poolTvl = IToken(token0).balanceOf(lpToken) * 2;
             else poolTvl = IToken(token1).balanceOf(lpToken) * 2;
-        }
+        } 
         
         return poolTvl;
-    }
+    }   
     
     function fetchPercOfSupply(uint pid) public view returns (uint summonerBal, uint totalSupply) {
-        (address lpToken, , ,) = Summoner.poolInfo(pid);
+        (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
         uint summonerLpTokens = IToken(lpToken).balanceOf(SUMMONER_CONTRACT);
         uint lpTokenSupply = IToken(lpToken).totalSupply();
         return (summonerLpTokens, lpTokenSupply);
     }
     
     function fetchPoolWeight(uint pid) public view returns (uint _pidAlloc, uint _totalAlloc) {
-        (, uint pidAlloc, ,) = Summoner.poolInfo(pid);
-        uint totalAlloc = Summoner.totalAllocPoint();
+        (, uint pidAlloc, ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
+        uint totalAlloc = ISummoner(SUMMONER_CONTRACT).totalAllocPoint();
         return (pidAlloc, totalAlloc);
     }
     
+    // note:
     // yearlySoulFarmRewards = SOUL_PER_YEAR * poolWeight
     function fetchYearlyRewards(uint pid) public view returns (uint _pidAlloc, uint _totalALloc, uint _SoulPerYear) {
         (uint pidAlloc, uint totalAlloc)  = fetchPoolWeight(pid);
-        uint SECONDS_PER_YEAR = 31_536_000;
-        uint soulPerSec = 3; // rounds up from 2.8 for simplicity
+        uint SECONDS_PER_YEAR = 31536000;
+        uint soulPerSec = ISummoner(SUMMONER_CONTRACT).soulPerSecond();
         uint SOUL_PER_YEAR = SECONDS_PER_YEAR * soulPerSec;
         return (pidAlloc, totalAlloc, SOUL_PER_YEAR);
     }
     
+    // note:
     // alloc = userBal / contractBal
     // allocPerc = alloc * 100
     function fetchUserOwnershp(uint pid, address user) public view returns (uint userBal, uint contractBal) {
-        (uint _userBal, , , , , ,) = Summoner.userInfo(pid, user);
-        (address lpToken, , ,) = Summoner.poolInfo(pid);
+        (uint _userBal, , , , , ,) = ISummoner(SUMMONER_CONTRACT).userInfo(pid, user);
+        (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
         uint _contractBal = IToken(lpToken).balanceOf(SUMMONER_CONTRACT);
         return (_userBal, _contractBal);
     }
@@ -124,8 +122,8 @@ contract FarmHelper {
         uint[] memory tvl_;
         uint soulPerYear_;
         
-        uint poolLength = Summoner.poolLength();
-        
+        uint poolLength = ISummoner(SUMMONER_CONTRACT).poolLength();
+
         for (uint i; i < poolLength; i++) {
             (uint summonerLpToken, uint lpTokenSupply, uint pidAlloc, uint totalALloc, uint soulPerYear, uint tvl) = fetchPidDetails(i);
             summonerLpToken_[i] = summonerLpToken;
@@ -140,26 +138,30 @@ contract FarmHelper {
         return (summonerLpToken_, lpTokenSupply_, pidAlloc_, totalALloc_, tvl_, soulPerYear_);
     }
 
-    function fetchTokenRateBals() external view returns (uint totalFtm, uint totalUsdc, uint totalSoul, uint totalFusd) {
-        uint _totalFtm = wftm.balanceOf(ftmUsdcLp);
-        uint _totalUsdc = usdc.balanceOf(ftmUsdcLp);
-        uint _totalSoul = soul.balanceOf(soulFusdLp);
-        uint _totalFusd = fusd.balanceOf(soulFusdLp);
+    function fetchTokenRateBals() external view returns (uint ftmUsdcTotalFtm, uint ftmUsdcTotalUsdc, uint soulFusdTotalSoul, uint soulFtmTotalFusd, uint ethFtmTotalFtm, uint ethFtmTotalEth) {
+        uint _ftmUsdcTotalFtm = IToken(WFTM).balanceOf(ftmUsdcLp);
+        uint _ftmUsdcTotalUsdc = IToken(USDC).balanceOf(ftmUsdcLp);
         
-        return (_totalFtm, _totalUsdc, _totalSoul, _totalFusd);
+        uint _soulFusdTotalSoul = IToken(SOUL).balanceOf(soulFusdLp);
+        uint _soulFtmTotalFusd = IToken(FUSD).balanceOf(soulFusdLp);
+        
+        uint _ethFtmTotalFtm = IToken(WFTM).balanceOf(ftmEthLp);
+        uint _ethFtmTotalEth = IToken(WETH).balanceOf(ftmEthLp);
+        
+        return (_ftmUsdcTotalFtm, _ftmUsdcTotalUsdc, _soulFusdTotalSoul, _soulFtmTotalFusd, _ethFtmTotalFtm, _ethFtmTotalEth);
     }
     
     function fetchWithdrawable(uint pid, uint amount) external view returns (uint _feeAmount, uint _withdrawable, uint _feeRate) {
-        uint timeDelta = Summoner.userDelta(pid, msg.sender);
-        (uint feeAmount, uint withdrawable) = Summoner.getWithdrawable(pid, timeDelta, amount);
-        uint feeRate = Summoner.getFeeRate(pid, timeDelta);
+        uint timeDelta = ISummoner(SUMMONER_CONTRACT).userDelta(pid, msg.sender);
+        (uint feeAmount, uint withdrawable) = ISummoner(SUMMONER_CONTRACT).getWithdrawable(pid, timeDelta, amount);
+        uint feeRate = ISummoner(SUMMONER_CONTRACT).getFeeRate(pid, timeDelta);
         return (feeAmount, withdrawable, feeRate);
     }
     
     
     function fetchStakedBals(uint pid) external view returns (uint staked, uint unstaked) {
-        (address lpToken, , ,) = Summoner.poolInfo(pid);
-        (uint _staked, , , , , ,) = Summoner.userInfo(pid, msg.sender);
+        (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
+        (uint _staked, , , , , ,) = ISummoner(SUMMONER_CONTRACT).userInfo(pid, msg.sender);
         uint _unstaked = IToken(lpToken).balanceOf(msg.sender);
         return (_staked, _unstaked);
     }
