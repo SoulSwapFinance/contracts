@@ -6,8 +6,12 @@ pragma solidity 0.8.7;
 interface ISummoner {
     function userInfo(uint pid, address user) external view returns(uint, uint, uint, uint, uint, uint, uint);
     function poolInfo(uint pid) external view returns (address, uint, uint, uint);
+    function poolLength() external view returns (uint);
     function totalAllocPoint() external view returns (uint);
     function soulPerSecond() external view returns (uint);
+    function getWithdrawable(uint pid, uint timeDelta, uint amount) external view returns (uint _feeAmount, uint _withdrawable);
+    function userDelta(uint256 _pid, address _user) external view returns (uint256 delta);
+    function getFeeRate(uint pid, uint timeDelta) external view returns (uint feeRate);
 }
 
 interface IToken {
@@ -20,7 +24,6 @@ interface IToken {
 contract FarmHelper {
         
     address SUMMONER_CONTRACT = 0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B;    
-    
     address FUSD = 0xAd84341756Bf337f5a0164515b1f6F993D194E1f;
     address USDC = 0x04068DA6C83AFCFA0e13ba15A6696662335D5B75;
     address WFTM = 0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83;
@@ -85,12 +88,37 @@ contract FarmHelper {
         return (_userBal, _contractBal);
     }
     
-    function fetchPidDetails(uint pid) external view returns (uint summonerLpTokens, uint lpTokenSupply, uint _pidAlloc, uint _totalALloc, uint _SoulPerYear, uint tvl) {
+    function fetchPidDetails(uint pid) public view returns (uint summonerLpTokens, uint lpTokenSupply, uint _pidAlloc, uint _totalALloc, uint _soulPerYear, uint tvl) {
         (uint _summonerLpTokens, uint _lpTokenSupply) = fetchPercOfSupply(pid);
         (uint pidAlloc, uint totalAlloc, uint soulPerSec) = fetchYearlyRewards(pid);
         uint _tvl = fetchTvl(pid);
         return (_summonerLpTokens, _lpTokenSupply, pidAlloc, totalAlloc, soulPerSec, _tvl);
     }
+    
+    struct PidDetails {
+        uint summonerLpTokens;
+        uint lpTokenSupply;
+        uint pidAlloc;
+        uint totalALloc;
+        uint soulPerYear;
+        uint tvl;
+    }
+    
+    // function fetchAllPidsDetails() external view returns (
+    //     uint[] memory _summonerLpTokens
+    // ) {
+    //     uint poolLength = ISummoner(SUMMONER_CONTRACT).poolLength();
+        
+    //     uint[] memory summonerLpTokens;
+        
+        
+    //     for (uint i; i < poolLength; i++) {
+    //         (uint summonerLpToken, uint lpTokenSupply, uint pidAlloc, uint totalALloc, uint soulPerYear, uint tvl) = fetchPidDetails(i);
+    //         summonerLpTokens.push(summonerLpToken);
+    //     }
+        
+    //     return summonerLpTokens;
+    // }
 
     function fetchTokenRateBals() external view returns (uint totalFtm, uint totalUsdc, uint totalSoul, uint totalFusd) {
         uint _totalFtm = IToken(WFTM).balanceOf(ftmUsdcLp);
@@ -100,5 +128,20 @@ contract FarmHelper {
         uint _totalFusd = IToken(FUSD).balanceOf(soulFusdLp);
         
         return (_totalFtm, _totalUsdc, _totalSoul, _totalFusd);
+    }
+    
+    function fetchWithdrawable(uint pid, uint amount) external view returns (uint _feeAmount, uint _withdrawable, uint _feeRate) {
+        uint timeDelta = ISummoner(SUMMONER_CONTRACT).userDelta(pid, msg.sender);
+        (uint feeAmount, uint withdrawable) = ISummoner(SUMMONER_CONTRACT).getWithdrawable(pid, timeDelta, amount);
+        uint feeRate = ISummoner(SUMMONER_CONTRACT).getFeeRate(pid, timeDelta);
+        return (feeAmount, withdrawable, feeRate);
+    }
+    
+    
+    function fetchStakedBals(uint pid) external view returns (uint staked, uint unstaked) {
+        (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
+        (uint _staked, , , , , ,) = ISummoner(SUMMONER_CONTRACT).userInfo(pid, msg.sender);
+        uint _unstaked = IToken(lpToken).balanceOf(msg.sender);
+        return (_staked, _unstaked);
     }
 }
