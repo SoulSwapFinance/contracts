@@ -25,6 +25,7 @@ contract FarmHelper {
         
     address SUMMONER_CONTRACT = 0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B;    
     address FUSD = 0xAd84341756Bf337f5a0164515b1f6F993D194E1f;
+    address FUSDT = 0x049d68029688eAbF473097a2fC38ef61633A3C7A;
     address USDC = 0x04068DA6C83AFCFA0e13ba15A6696662335D5B75;
     address WFTM = 0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83;
     address SOUL = 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07;
@@ -41,7 +42,7 @@ contract FarmHelper {
         
         uint poolTvl;
         
-        if (token0 == FUSD || token1 == FUSD || token0 == USDC || token1 == USDC) {
+        if (token0 == FUSD || token1 == FUSD || token0 == USDC || token1 == USDC || token0 == FUSDT || token1 == FUSDT) {
             if (token0 == FUSD || token0 == USDC)  poolTvl = IToken(token0).balanceOf(lpToken) * 2;
             else poolTvl = IToken(token1).balanceOf(lpToken) * 2;
         } else if (token0 == WFTM || token1 == WFTM) {
@@ -104,21 +105,36 @@ contract FarmHelper {
         uint tvl;
     }
     
-    // function fetchAllPidsDetails() external view returns (
-    //     uint[] memory _summonerLpTokens
-    // ) {
-    //     uint poolLength = ISummoner(SUMMONER_CONTRACT).poolLength();
+    function fetchAllPidsDetails() external view returns (
+        uint[] memory _summonerLpTokens,
+        uint[] memory _lpTokenSupply,
+        uint[] memory _pidAlloc,
+        uint[] memory _totalALloc,
+        uint[] memory _tvl,
+        uint _soulPerYear
+    ) {
+        uint[] memory summonerLpToken_;
+        uint[] memory lpTokenSupply_;
+        uint[] memory pidAlloc_;
+        uint[] memory totalALloc_;
+        uint[] memory tvl_;
+        uint soulPerYear_;
         
-    //     uint[] memory summonerLpTokens;
+        uint poolLength = ISummoner(SUMMONER_CONTRACT).poolLength();
         
+        for (uint i; i < poolLength; i++) {
+            (uint summonerLpToken, uint lpTokenSupply, uint pidAlloc, uint totalALloc, uint soulPerYear, uint tvl) = fetchPidDetails(i);
+            summonerLpToken_[i] = summonerLpToken;
+            lpTokenSupply_[i] = lpTokenSupply;
+            pidAlloc_[i] = pidAlloc;
+            totalALloc_[i] = totalALloc;
+            tvl_[i] = tvl;
+            
+            if (i == poolLength) soulPerYear_ = soulPerYear;
+        }
         
-    //     for (uint i; i < poolLength; i++) {
-    //         (uint summonerLpToken, uint lpTokenSupply, uint pidAlloc, uint totalALloc, uint soulPerYear, uint tvl) = fetchPidDetails(i);
-    //         summonerLpTokens.push(summonerLpToken);
-    //     }
-        
-    //     return summonerLpTokens;
-    // }
+        return (summonerLpToken_, lpTokenSupply_, pidAlloc_, totalALloc_, tvl_, soulPerYear_);
+    }
 
     function fetchTokenRateBals() external view returns (uint totalFtm, uint totalUsdc, uint totalSoul, uint totalFusd) {
         uint _totalFtm = IToken(WFTM).balanceOf(ftmUsdcLp);
