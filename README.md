@@ -32,8 +32,10 @@
 | 5 | [SOUL/SEANCE](https://ftmscan.com/address/0x8f1E15cD3d5a0bb85B8189d5c6B61BB64398E19b#code) | 0x8f1E15cD3d5a0bb85B8189d5c6B61BB64398E19b |
 | 6 | [FUSD/USDC](https://ftmscan.com/address/0xD5F5E2638d636A98eD4aAEBfd2045441316e0c08#code) | 0xD5F5E2638d636A98eD4aAEBfd2045441316e0c08 |
 | 7 | [USDC/SEANCE](https://ftmscan.com/address/0x98C678d3C7ebeD4a36B84666700d8b5b5Ddc1f79#code) | 0x98C678d3C7ebeD4a36B84666700d8b5b5Ddc1f79 |
-| 8 | [ETH/BTC](https://ftmscan.com/address/#code) | 0x... |
-| 9 | [USDC/DAI](https://ftmscan.com/address/#code) | 0x... |
+| 8 | [ETH/BTC](https://ftmscan.com/address/0x1FC954d3484bC21E0Ce53A6648a35BBfc03DC9D0#code) | 0x1FC954d3484bC21E0Ce53A6648a35BBfc03DC9D0 |
+| 9 | [USDC/FUSDT](https://ftmscan.com/address/0x298c12D6d9D6746Dd0ef0A89421288F52D5566eF#code) | 0x298c12D6d9D6746Dd0ef0A89421288F52D5566eF |
+| 10 | [SEANCE/FTM](https://ftmscan.com/address/0x8542bEAC34282aFe5Bb6951Eb6DCE0B3783b7faB#code) | 0x8542bEAC34282aFe5Bb6951Eb6DCE0B3783b7faB |
+
 
 ----
 
