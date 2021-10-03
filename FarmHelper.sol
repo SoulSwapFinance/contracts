@@ -130,7 +130,7 @@ contract FarmHelper {
         return (_userBal, _contractBal);
     }
     
-    function fetchOwnershipRewards(uint pid) external view returns (uint userBal, uint contractBal, uint pidAlloc, uint totalAlloc, uint soulPerYear) {
+    function fetchOwnershipRewards(uint pid) public view returns (uint userBal, uint contractBal, uint pidAlloc, uint totalAlloc, uint soulPerYear) {
         (uint _userBal, uint _contractBal) = fetchUserOwnershp(pid);
         (uint _pidAlloc, uint _totalAlloc, uint _soulPerYear) = fetchYearlyRewards(pid);
         return (_userBal, _contractBal, _pidAlloc, _totalAlloc, _soulPerYear);
@@ -138,7 +138,7 @@ contract FarmHelper {
     
     function fetchPidDetails(uint pid) public view returns (uint summonerLpTokens, uint lpTokenSupply, uint _pidAlloc, uint _totalAlloc, uint _soulPerYear, uint tvl) {
         (uint _summonerLpTokens, uint _lpTokenSupply) = fetchPercOfSupply(pid);
-        (uint pidAlloc, uint totalAlloc, uint soulPerYear) = fetchOwnershipRewards(pid);
+        (uint pidAlloc, uint totalAlloc, uint soulPerYear) = fetchYearlyRewards(pid);
         uint _tvl = fetchTvl(pid);
         return (_summonerLpTokens, _lpTokenSupply, pidAlloc, totalAlloc, soulPerYear, _tvl);
     }
