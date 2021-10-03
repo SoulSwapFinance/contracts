@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-// Created by DeGatchi (3/10/2021) for SoulSwap 
+// Created by DeGatchi (4/10/2021) for SoulSwap 
 pragma solidity 0.8.9;
 
 interface ISummoner {
@@ -13,6 +13,7 @@ interface ISummoner {
     function getFeeRate(uint pid, uint timeDelta) external view returns (uint feeRate);
     function pendingSoul(uint pid, address user) external view returns (uint);
     function deposit(uint pid, uint amount) external;
+    function enterStaking(uint amount) external;
 }
 
 interface IToken {
@@ -56,6 +57,7 @@ contract FarmHelper {
         
         for (uint pid; pid < poolLength; pid++) {
             uint pending = ISummoner(SUMMONER_CONTRACT).pendingSoul(pid, msg.sender);
+            if (pid == 0 && pending != 0) ISummoner(SUMMONER_CONTRACT).enterStaking(0);
             if (pending != 0) ISummoner(SUMMONER_CONTRACT).deposit(pid, 0);
         }
     }
