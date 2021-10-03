@@ -10,7 +10,7 @@
 | [SoulSummoner.sol](https://ftmscan.com/address/0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B#code) | 0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B |
 | [Ceremony.sol](https://ftmscan.com/address/0x05d4e2948F2407BD9dAFe4f74253AfE2296456B8#code) | 0x05d4e2948F2407BD9dAFe4f74253AfE2296456B8 |
 | [Multicall.sol](https://ftmscan.com/address/0xEd2Fb478f7fCef33E1E1d980a0135789B295a7F5#code) | 0xEd2Fb478f7fCef33E1E1d980a0135789B295a7F5 |
-| [FarmHelper.sol](https://ftmscan.com/address/0x94b35DDEb8B08cf65bd43bDf12Fb34Df6DE7c651#code) | 0x94b35DDEb8B08cf65bd43bDf12Fb34Df6DE7c651 |
+| [FarmHelper.sol](https://ftmscan.com/address/0x00733Aa9A5D3e89DB722b315CbFB9Ad5275A8175#code) | 0x00733Aa9A5D3e89DB722b315CbFB9Ad5275A8175 |
 | [SoulSwapInterfaceMulticall.sol](https://ftmscan.com/address/0x1245Af167E1C2803b713af29F3C121b191a19366#code) | 0x1245Af167E1C2803b713af29F3C121b191a19366 |
 
 ----
