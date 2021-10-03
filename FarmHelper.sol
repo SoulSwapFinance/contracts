@@ -57,8 +57,12 @@ contract FarmHelper {
         
         for (uint pid; pid < poolLength; pid++) {
             uint pending = ISummoner(SUMMONER_CONTRACT).pendingSoul(pid, msg.sender);
-            if (pid == 0 && pending != 0) ISummoner(SUMMONER_CONTRACT).enterStaking(0);
-            else if (pending != 0) ISummoner(SUMMONER_CONTRACT).deposit(pid, 0);
+            
+            if (pid == 0 && pending != 0) {
+                ISummoner(SUMMONER_CONTRACT).enterStaking(0);
+            } else if (pending != 0) {
+                ISummoner(SUMMONER_CONTRACT).deposit(pid, 0);
+            }
         }
     }
         
