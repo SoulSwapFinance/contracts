@@ -37,9 +37,8 @@ contract FarmHelper {
     address soulFusdLp = 0x9e7711eAeb652d0da577C1748844407f8Db44a10;
     address ftmEthLp = 0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb;
     
-    
     /// @dev fetches the total pending rewards from all farm pools
-    function totalPending() public view returns (uint) {
+    function totalPending() external view returns (uint) {
         uint poolLength = ISummoner(SUMMONER_CONTRACT).poolLength();
         
         uint _totalPending;
@@ -113,7 +112,7 @@ contract FarmHelper {
     
     // note:
     // yearlySoulFarmRewards = SOUL_PER_YEAR * poolWeight
-    function fetchYearlyRewards(uint pid) public view returns (uint _pidAlloc, uint _totalALloc, uint _SoulPerYear) {
+    function fetchYearlyRewards(uint pid) public view returns (uint _pidAlloc, uint _totalALloc, uint _soulPerYear) {
         (uint pidAlloc, uint totalAlloc)  = fetchPoolWeight(pid);
         uint SECONDS_PER_YEAR = 31536000;
         uint soulPerSec = ISummoner(SUMMONER_CONTRACT).soulPerSecond();
@@ -124,18 +123,24 @@ contract FarmHelper {
     // note:
     // alloc = userBal / contractBal
     // allocPerc = alloc * 100
-    function fetchUserOwnershp(uint pid, address user) public view returns (uint userBal, uint contractBal) {
-        (uint _userBal, , , , , ,) = ISummoner(SUMMONER_CONTRACT).userInfo(pid, user);
+    function fetchUserOwnershp(uint pid) public view returns (uint userBal, uint contractBal) {
+        (uint _userBal, , , , , ,) = ISummoner(SUMMONER_CONTRACT).userInfo(pid, msg.sender);
         (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
         uint _contractBal = IToken(lpToken).balanceOf(SUMMONER_CONTRACT);
         return (_userBal, _contractBal);
     }
     
-    function fetchPidDetails(uint pid) public view returns (uint summonerLpTokens, uint lpTokenSupply, uint _pidAlloc, uint _totalALloc, uint _soulPerYear, uint tvl) {
+    function fetchOwnershipRewards(uint pid) external view returns (uint userBal, uint contractBal, uint pidAlloc, uint totalAlloc, uint soulPerYear) {
+        (uint _userBal, uint _contractBal) = fetchUserOwnershp(pid);
+        (uint _pidAlloc, uint _totalAlloc, uint _soulPerYear) = fetchYearlyRewards(pid);
+        return (_userBal, _contractBal, _pidAlloc, _totalAlloc, _soulPerYear);
+    }
+    
+    function fetchPidDetails(uint pid) public view returns (uint summonerLpTokens, uint lpTokenSupply, uint _pidAlloc, uint _totalAlloc, uint _soulPerYear, uint tvl) {
         (uint _summonerLpTokens, uint _lpTokenSupply) = fetchPercOfSupply(pid);
-        (uint pidAlloc, uint totalAlloc, uint soulPerSec) = fetchYearlyRewards(pid);
+        (uint pidAlloc, uint totalAlloc, uint soulPerYear) = fetchOwnershipRewards(pid);
         uint _tvl = fetchTvl(pid);
-        return (_summonerLpTokens, _lpTokenSupply, pidAlloc, totalAlloc, soulPerSec, _tvl);
+        return (_summonerLpTokens, _lpTokenSupply, pidAlloc, totalAlloc, soulPerYear, _tvl);
     }
     
     struct PidDetails {
@@ -197,7 +202,6 @@ contract FarmHelper {
         uint feeRate = ISummoner(SUMMONER_CONTRACT).getFeeRate(pid, timeDelta);
         return (feeAmount, withdrawable, feeRate);
     }
-    
     
     function fetchStakedBals(uint pid) external view returns (uint staked, uint unstaked) {
         (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
