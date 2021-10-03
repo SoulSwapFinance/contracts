@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
-// Created by DeGatchi (26/06/2021) for SoulSwap 
-pragma solidity 0.8.7;
+// Created by DeGatchi (3/10/2021) for SoulSwap 
+pragma solidity 0.8.9;
 
 interface ISummoner {
     function userInfo(uint pid, address user) external view returns(uint, uint, uint, uint, uint, uint, uint);
@@ -11,6 +11,8 @@ interface ISummoner {
     function getWithdrawable(uint pid, uint timeDelta, uint amount) external view returns (uint _feeAmount, uint _withdrawable);
     function userDelta(uint256 _pid, address _user) external view returns (uint256 delta);
     function getFeeRate(uint pid, uint timeDelta) external view returns (uint feeRate);
+    function pendingSoul(uint pid, address user) external view returns (uint);
+    function deposit(uint pid, uint amount) external;
 }
 
 interface IToken {
@@ -36,6 +38,29 @@ contract FarmHelper {
     address ftmEthLp = 0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb;
     
     
+    /// @dev fetches the total pending rewards from all farm pools
+    function totalPending() public view returns (uint) {
+        uint poolLength = ISummoner(SUMMONER_CONTRACT).poolLength();
+        
+        uint _totalPending;
+        
+        for (uint pid; pid < poolLength; pid++) {
+            uint pending = ISummoner(SUMMONER_CONTRACT).pendingSoul(pid, msg.sender);
+            if (pending != 0) _totalPending += pending;
+        }
+        
+        return _totalPending;
+    }
+        
+    function harvestAll() external {
+        uint poolLength = ISummoner(SUMMONER_CONTRACT).poolLength();
+        
+        for (uint pid; pid < poolLength; pid++) {
+            uint pending = ISummoner(SUMMONER_CONTRACT).pendingSoul(pid, msg.sender);
+            if (pending != 0) ISummoner(SUMMONER_CONTRACT).deposit(pid, 0);
+        }
+    }
+        
     function fetchTvl(uint pid) public view returns (uint) {
         (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
         
