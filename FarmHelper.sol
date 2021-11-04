@@ -1,4 +1,3 @@
-
 // SPDX-License-Identifier: MIT
 // Created by DeGatchi (4/10/2021) for SoulSwap 
 pragma solidity 0.8.9;
@@ -28,21 +27,26 @@ contract FarmHelper {
         
     address SUMMONER_CONTRACT = 0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B;    
     
+    // stables
     address FUSD = 0xAd84341756Bf337f5a0164515b1f6F993D194E1f;
     address FUSDT = 0x049d68029688eAbF473097a2fC38ef61633A3C7A;
     address GFUSDT = 0x940F41F0ec9ba1A34CF001cc03347ac092F5F6B5;
     address DAI = 0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E;
-
     address USDC = 0x04068DA6C83AFCFA0e13ba15A6696662335D5B75;
+    
+    // non-stables
     address WFTM = 0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83;
     address WETH = 0x74b23882a30290451A17c44f4F05243b6b58C76d;
     address SOUL = 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07;
+    address ENCHANT = 0x6a1a8368D607c7a808F7BbA4F7aEd1D9EbDE147a;
     address BNB = 0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454;
     
+    // lp tokens
     address ftmUsdcLp = 0x160653F02b6597E7Db00BA8cA826cf43D2f39556;
     address soulFusdLp = 0x9e7711eAeb652d0da577C1748844407f8Db44a10;
     address ftmEthLp = 0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb;
     address daiBnbLp = 0xC1EdFbA9811B696bDFd07d31eD5FF702e031364E;
+    address ftmEnchantLp = 0xb4d6Ff768F409e4D102BAD80f9A8ac105453ccdD;
 
     /// @dev fetches the total pending rewards from all farm pools
     function totalPending() external view returns (uint) {
@@ -85,8 +89,12 @@ contract FarmHelper {
             || token0 == FUSDT || token1 == FUSDT
             || token0 == GFUSDT || token1 == GFUSDT
             || token0 == DAI || token1 == DAI
-            ) {
-            if (token0 == FUSD || token0 == USDC || token0 == DAI
+        ) {
+            if (
+                token0 == FUSD || 
+                token0 == USDC ||
+                token0 == DAI ||
+                token0 == GFUSDT
             )  {
                 poolTvl = IToken(token0).balanceOf(lpToken) * 2;
             } else {
@@ -206,31 +214,37 @@ contract FarmHelper {
         
         return (summonerLpToken_, lpTokenSupply_, pidAlloc_, totalALloc_, tvl_, soulPerYear_);
     }
+    /**
+        [0] : ftmUsdcTotalFtm
+        [1] : ftmUsdcTotalUsdc 
+        [2] : soulFusdTotalSoul 
+        [3] : soulFtmTotalFusd 
+        [4] : ethFtmTotalFtm
+        [5] : ethFtmTotalEth
+        [6] : bnbDaiTotalBnb
+        [7] : bnbDaiTotalDai
+        [8] : ftmEnchantTotalFtm
+        [9] : ftmEnchantTotalEnchant
+     */
+    function fetchTokenRateBals() external view returns (uint[] memory) {
+        uint[] memory store; 
+        
+        store[0] = (IToken(WFTM).balanceOf(ftmUsdcLp));
+        store[1] = IToken(USDC).balanceOf(ftmUsdcLp);
+        
+        store[2] = IToken(SOUL).balanceOf(soulFusdLp);
+        store[3] =  IToken(FUSD).balanceOf(soulFusdLp);
+        
+        store[4] = IToken(WFTM).balanceOf(ftmEthLp);
+        store[5] = IToken(WETH).balanceOf(ftmEthLp);
 
-    function fetchTokenRateBals() external view returns (
-        uint ftmUsdcTotalFtm,
-        uint ftmUsdcTotalUsdc, 
-        uint soulFusdTotalSoul, 
-        uint soulFtmTotalFusd, 
-        uint ethFtmTotalFtm, 
-        uint ethFtmTotalEth,
-        uint bnbDaiTotalBnb,
-        uint bnbDaiTotalDai
-        ) {
-            
-        uint _ftmUsdcTotalFtm = IToken(WFTM).balanceOf(ftmUsdcLp);
-        uint _ftmUsdcTotalUsdc = IToken(USDC).balanceOf(ftmUsdcLp);
+        store[6] = IToken(BNB).balanceOf(daiBnbLp);
+        store[7] = IToken(DAI).balanceOf(daiBnbLp);
         
-        uint _soulFusdTotalSoul = IToken(SOUL).balanceOf(soulFusdLp);
-        uint _soulFtmTotalFusd = IToken(FUSD).balanceOf(soulFusdLp);
+        store[8] = IToken(WFTM).balanceOf(ftmEnchantLp);
+        store[9] = IToken(ENCHANT).balanceOf(ftmEnchantLp);
         
-        uint _ethFtmTotalFtm = IToken(WFTM).balanceOf(ftmEthLp);
-        uint _ethFtmTotalEth = IToken(WETH).balanceOf(ftmEthLp);
-
-        uint _bnbDaiTotalBnb = IToken(BNB).balanceOf(daiBnbLp);
-        uint _bnbDaiTotalDai = IToken(DAI).balanceOf(daiBnbLp);
-        
-        return (_ftmUsdcTotalFtm, _ftmUsdcTotalUsdc, _soulFusdTotalSoul, _soulFtmTotalFusd, _ethFtmTotalFtm, _ethFtmTotalEth, _bnbDaiTotalBnb, _bnbDaiTotalDai);
+        return(store);
     }
     
     function fetchWithdrawable(uint pid, uint amount) external view returns (uint _feeAmount, uint _withdrawable, uint _feeRate) {
