@@ -32,16 +32,18 @@ contract FarmHelper {
     address FUSDT = 0x049d68029688eAbF473097a2fC38ef61633A3C7A;
     address GFUSDT = 0x940F41F0ec9ba1A34CF001cc03347ac092F5F6B5;
     address DAI = 0x8D11eC38a3EB5E956B052f67Da8Bdc9bef8Abf3E;
-
     address USDC = 0x04068DA6C83AFCFA0e13ba15A6696662335D5B75;
+
     address WFTM = 0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83;
     address WETH = 0x74b23882a30290451A17c44f4F05243b6b58C76d;
     address SOUL = 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07;
+    address ENCHANT = 0x6a1a8368D607c7a808F7BbA4F7aEd1D9EbDE147a;
     address BNB = 0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454;
     
     address ftmUsdcLp = 0x160653F02b6597E7Db00BA8cA826cf43D2f39556;
     address soulFusdLp = 0x9e7711eAeb652d0da577C1748844407f8Db44a10;
     address ftmEthLp = 0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb;
+    address ftmEnchantLp = 0xb4d6Ff768F409e4D102BAD80f9A8ac105453ccdD;
     address daiBnbLp = 0xC1EdFbA9811B696bDFd07d31eD5FF702e031364E;
 
     /// @dev fetches the total pending rewards from all farm pools
@@ -80,12 +82,13 @@ contract FarmHelper {
         
         uint poolTvl;
         
-        if (token0 == FUSD || token1 == FUSD 
+        if (
+            token0 == FUSD || token1 == FUSD 
             || token0 == USDC || token1 == USDC 
             || token0 == FUSDT || token1 == FUSDT
             || token0 == GFUSDT || token1 == GFUSDT
             || token0 == DAI || token1 == DAI
-            ) {
+        ) {
             if (token0 == FUSD || token0 == USDC || token0 == DAI
             )  {
                 poolTvl = IToken(token0).balanceOf(lpToken) * 2;
@@ -104,8 +107,8 @@ contract FarmHelper {
             } else {
                 poolTvl = IToken(token1).balanceOf(lpToken) * 2;
             }
-        } else if (token0 == BNB || token1 == BNB) {
-            if (token0 == BNB) {
+        } else if (token0 == ENCHANT || token1 == ENCHANT) {
+            if (token0 == ENCHANT) {
                 poolTvl = IToken(token0).balanceOf(lpToken) * 2;
             } else {
                 poolTvl = IToken(token1).balanceOf(lpToken) * 2;
@@ -214,10 +217,9 @@ contract FarmHelper {
         uint soulFtmTotalFusd, 
         uint ethFtmTotalFtm, 
         uint ethFtmTotalEth,
-        uint bnbDaiTotalBnb,
-        uint bnbDaiTotalDai
-        ) {
-            
+        uint ftmEnchantTotalFtm,
+        uint ftmEnchantTotalEnchant
+    ) {
         uint _ftmUsdcTotalFtm = IToken(WFTM).balanceOf(ftmUsdcLp);
         uint _ftmUsdcTotalUsdc = IToken(USDC).balanceOf(ftmUsdcLp);
         
@@ -227,10 +229,19 @@ contract FarmHelper {
         uint _ethFtmTotalFtm = IToken(WFTM).balanceOf(ftmEthLp);
         uint _ethFtmTotalEth = IToken(WETH).balanceOf(ftmEthLp);
 
-        uint _bnbDaiTotalBnb = IToken(BNB).balanceOf(daiBnbLp);
-        uint _bnbDaiTotalDai = IToken(DAI).balanceOf(daiBnbLp);
+        uint _ftmEnchantTotalFtm = IToken(WFTM).balanceOf(ftmEnchantLp);
+        uint _ftmEnchantTotalEnchant = IToken(WFTM).balanceOf(ftmEnchantLp);
         
-        return (_ftmUsdcTotalFtm, _ftmUsdcTotalUsdc, _soulFusdTotalSoul, _soulFtmTotalFusd, _ethFtmTotalFtm, _ethFtmTotalEth, _bnbDaiTotalBnb, _bnbDaiTotalDai);
+        return (
+            _ftmUsdcTotalFtm, 
+            _ftmUsdcTotalUsdc, 
+            _soulFusdTotalSoul, 
+            _soulFtmTotalFusd, 
+            _ethFtmTotalFtm, 
+            _ethFtmTotalEth, 
+            _ftmEnchantTotalFtm, 
+            _ftmEnchantTotalEnchant
+        );
     }
     
     function fetchWithdrawable(uint pid, uint amount) external view returns (uint _feeAmount, uint _withdrawable, uint _feeRate) {
