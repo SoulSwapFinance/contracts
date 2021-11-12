@@ -41,7 +41,7 @@ contract FarmHelper {
     address BNB = 0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454;
     
     address ftmUsdcLp = 0x160653F02b6597E7Db00BA8cA826cf43D2f39556;
-    address soulFusdtLp = 0x9e7711eAeb652d0da577C1748844407f8Db44a10;
+    address soulFusdtLp = 0xE27Cc06a7F34892BC17a5474303b91b2C9F3F21A;
     address ftmEthLp = 0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb;
     address ftmEnchantLp = 0xb4d6Ff768F409e4D102BAD80f9A8ac105453ccdD;
     address seanceUsdcLp = 0x98C678d3C7ebeD4a36B84666700d8b5b5Ddc1f79;
