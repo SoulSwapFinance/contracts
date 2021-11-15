@@ -224,16 +224,16 @@ contract FarmHelper {
         _ftmUsdcTotalUsdc = IToken(USDC).balanceOf(ftmUsdcLp);
         
         // ftm/soul
-        _ftmSoulTotalSoul = IToken(SOUL).balanceOf(ftmSoulLp);
-        _ftmSoulTotalFusd = IToken(FUSD).balanceOf(ftmSoulLp);
+        _ftmSoulTotalSoul = IToken(WFTM).balanceOf(ftmSoulLp);
+        _ftmSoulTotalFusd = IToken(SOUL).balanceOf(ftmSoulLp);
         
         // ftm/seance
         _ftmSeanceTotalFtm = IToken(WFTM).balanceOf(ftmSeanceLp);
-        _ftmSeanceTotalSeance = IToken(WFTM).balanceOf(ftmSeanceLp);
+        _ftmSeanceTotalSeance = IToken(SEANCE).balanceOf(ftmSeanceLp);
         
         // ftm/enchant
         _ftmEnchantTotalFtm = IToken(WFTM).balanceOf(ftmEnchantLp);
-        _ftmEnchantTotalEnchant = IToken(WFTM).balanceOf(ftmEnchantLp);
+        _ftmEnchantTotalEnchant = IToken(ENCHANT).balanceOf(ftmEnchantLp);
         
         // ftm/eth
          _ethFtmTotalFtm = IToken(WFTM).balanceOf(ftmEthLp);
