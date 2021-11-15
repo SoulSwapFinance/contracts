@@ -42,7 +42,7 @@ contract FarmHelper {
     address BNB = 0xD67de0e0a0Fd7b15dC8348Bb9BE742F3c5850454;
     
     address ftmUsdcLp = 0x160653F02b6597E7Db00BA8cA826cf43D2f39556;
-    address soulFusdLp = 0x9e7711eAeb652d0da577C1748844407f8Db44a10;
+    address ftmSoulLp = 0xa2527Af9DABf3E3B4979d7E0493b5e2C6e63dC57;
     address ftmEthLp = 0xC615a5fd68265D9Ec6eF60805998fa5Bb71972Cb;
     address ftmEnchantLp = 0xb4d6Ff768F409e4D102BAD80f9A8ac105453ccdD;
     address ftmSeanceLp = 0x8542bEAC34282aFe5Bb6951Eb6DCE0B3783b7faB;
@@ -62,20 +62,6 @@ contract FarmHelper {
         return _totalPending;
     }
         
-    function harvestAll() external {
-        uint poolLength = ISummoner(SUMMONER_CONTRACT).poolLength();
-        
-        for (uint pid; pid < poolLength; pid++) {
-            uint pending = ISummoner(SUMMONER_CONTRACT).pendingSoul(pid, msg.sender);
-            
-            if (pid == 0 && pending != 0) {
-                ISummoner(SUMMONER_CONTRACT).enterStaking(0);
-            } else if (pending != 0) {
-                ISummoner(SUMMONER_CONTRACT).deposit(pid, 0);
-            }
-        }
-    }
-        
     function fetchTvl(uint pid) public view returns (uint) {
         (address lpToken, , ,) = ISummoner(SUMMONER_CONTRACT).poolInfo(pid);
         
@@ -84,6 +70,7 @@ contract FarmHelper {
         
         uint poolTvl;
         
+        // if: stablecoin
         if (
             token0 == FUSD || token1 == FUSD 
             || token0 == USDC || token1 == USDC 
@@ -91,12 +78,12 @@ contract FarmHelper {
             || token0 == GFUSDT || token1 == GFUSDT
             || token0 == DAI || token1 == DAI
         ) {
-            if (token0 == FUSD || token0 == USDC || token0 == DAI
-            )  {
+            if (token0 == FUSD || token0 == USDC || token0 == FUSDT || token0 == GFUSDT || token0 == DAI)  {
                 poolTvl = IToken(token0).balanceOf(lpToken) * 2;
             } else {
                 poolTvl = IToken(token1).balanceOf(lpToken) * 2;
             }
+        // else if: base token
         } else if (token0 == WFTM || token1 == WFTM) {
             if (token0 == WFTM) {
                 poolTvl = IToken(token0).balanceOf(lpToken) * 2;
@@ -109,14 +96,14 @@ contract FarmHelper {
             } else {
                 poolTvl = IToken(token1).balanceOf(lpToken) * 2;
             }
-        } else if (token0 == ENCHANT || token1 == ENCHANT) {
-            if (token0 == ENCHANT) {
+        } else if (token0 == SEANCE || token1 == SEANCE) {
+            if (token0 == SEANCE) {
                 poolTvl = IToken(token0).balanceOf(lpToken) * 2;
             } else {
                 poolTvl = IToken(token1).balanceOf(lpToken) * 2;
             }
-        } else if (token0 == SEANCE || token1 == SEANCE) {
-            if (token0 == SEANCE) {
+        } else if (token0 == ENCHANT || token1 == ENCHANT) {
+            if (token0 == ENCHANT) {
                 poolTvl = IToken(token0).balanceOf(lpToken) * 2;
             } else {
                 poolTvl = IToken(token1).balanceOf(lpToken) * 2;
@@ -218,49 +205,39 @@ contract FarmHelper {
         return (summonerLpToken_, lpTokenSupply_, pidAlloc_, totalALloc_, tvl_, soulPerYear_);
     }
 
+    // fetch balances of each token in pool to check ratio
+    // i.e., ratio: 1 ftm : 3 soul
     function fetchTokenRateBals() external view returns (
         uint _ftmUsdcTotalFtm,
         uint _ftmUsdcTotalUsdc, 
-        uint _soulFusdTotalSoul, 
-        uint _soulFtmTotalFusd, 
-        uint _ethFtmTotalFtm, 
-        uint _ethFtmTotalEth,
+        uint _ftmSoulTotalSoul, 
+        uint _ftmSoulTotalFusd, 
+        uint _ftmSeanceTotalFtm,
+        uint _ftmSeanceTotalSeance,
         uint _ftmEnchantTotalFtm,
         uint _ftmEnchantTotalEnchant,
-        uint _ftmSeanceTotalFtm,
-        uint _ftmSeanceTotalSeance
+        uint _ethFtmTotalFtm, 
+        uint _ethFtmTotalEth
     ) {
+        // ftm/usdc
         _ftmUsdcTotalFtm = IToken(WFTM).balanceOf(ftmUsdcLp);
         _ftmUsdcTotalUsdc = IToken(USDC).balanceOf(ftmUsdcLp);
         
-        _soulFusdTotalSoul = IToken(SOUL).balanceOf(soulFusdLp);
-        _soulFtmTotalFusd = IToken(FUSD).balanceOf(soulFusdLp);
+        // ftm/soul
+        _ftmSoulTotalSoul = IToken(SOUL).balanceOf(ftmSoulLp);
+        _ftmSoulTotalFusd = IToken(FUSD).balanceOf(ftmSoulLp);
         
-        _ethFtmTotalFtm = IToken(WFTM).balanceOf(ftmEthLp);
-        _ethFtmTotalEth = IToken(WETH).balanceOf(ftmEthLp);
-
-        _ftmEnchantTotalFtm = IToken(WFTM).balanceOf(ftmEnchantLp);
-        _ftmEnchantTotalEnchant = IToken(WFTM).balanceOf(ftmEnchantLp);
-        
+        // ftm/seance
         _ftmSeanceTotalFtm = IToken(WFTM).balanceOf(ftmSeanceLp);
         _ftmSeanceTotalSeance = IToken(WFTM).balanceOf(ftmSeanceLp);
         
-        // return (
-            // _ftmUsdcTotalFtm, 
-            // _ftmUsdcTotalUsdc, 
-            
-            // _soulFusdTotalSoul, 
-            // _soulFtmTotalFusd, 
-            
-            // _ethFtmTotalFtm, 
-            // _ethFtmTotalEth, 
-            
-            // _ftmEnchantTotalFtm, 
-            // _ftmEnchantTotalEnchant,
-            
-            // _ftmSeanceTotalFtm,
-            // _ftmSeanceTotalSeance
-        // );
+        // ftm/enchant
+        _ftmEnchantTotalFtm = IToken(WFTM).balanceOf(ftmEnchantLp);
+        _ftmEnchantTotalEnchant = IToken(WFTM).balanceOf(ftmEnchantLp);
+        
+        // ftm/eth
+         _ethFtmTotalFtm = IToken(WFTM).balanceOf(ftmEthLp);
+        _ethFtmTotalEth = IToken(WETH).balanceOf(ftmEthLp);
     }
     
     function fetchWithdrawable(uint pid, uint amount) external view returns (uint _feeAmount, uint _withdrawable, uint _feeRate) {
