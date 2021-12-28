@@ -1,4 +1,4 @@
-## SoulSwap.finance Contracts
+## SoulSwap Contracts
 
 ### Fantom: Opera
 | Contract | Address | 
@@ -6,7 +6,7 @@
 | [SoulPower.sol](https://ftmscan.com/address/0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07#code) | 0xe2fb177009FF39F52C0134E8007FA0e4BaAcBd07 |
 | [SeanceCircle.sol](https://ftmscan.com/address/0x124B06C5ce47De7A6e9EFDA71a946717130079E6#code) | 0x124B06C5ce47De7A6e9EFDA71a946717130079E6 |
 | [Enchantment.sol](https://ftmscan.com/address/0x6a1a8368D607c7a808F7BbA4F7aEd1D9EbDE147a#code) | 0x6a1a8368D607c7a808F7BbA4F7aEd1D9EbDE147a |
-| [SoulAura.sol](https://ftmscan.com/address/0xb5c12f6DebAeEDE2107839D932E9a0d435AE5A4f#code) | 0xb5c12f6DebAeEDE2107839D932E9a0d435AE5A4f |
+| [SoulAura.sol](https://ftmscan.com/address/0x5b014e247c517Be62D622D44b912280B0b60ac73#code) | 0x5b014e247c517Be62D622D44b912280B0b60ac73 |
 | [SoulSwapFactory.sol](https://ftmscan.com/address/0x1120e150dA9def6Fe930f4fEDeD18ef57c0CA7eF#code) | 0x1120e150dA9def6Fe930f4fEDeD18ef57c0CA7eF |
 | [SoulSwapRouter.sol](https://ftmscan.com/address/0x6b3d631B87FE27aF29efeC61d2ab8CE4d621cCBF#code) | 0x6b3d631B87FE27aF29efeC61d2ab8CE4d621cCBF |
 | [SoulSummoner.sol](https://ftmscan.com/address/0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B#code) | 0xce6ccbB1EdAD497B4d53d829DF491aF70065AB5B |
