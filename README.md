@@ -16,6 +16,7 @@
 | [FarmHelper.sol](https://ftmscan.com/address/0x2726820079016ad9f5c477D5094F8C4cFA40EfA0#code) | 0x2726820079016ad9f5c477D5094F8C4cFA40EfA0 |
 | [Outcaster.sol](https://ftmscan.com/address/0xce530f22d82A2437F2fb4b43Df0e1e4fD446f0ff#code) | 0xce530f22d82A2437F2fb4b43Df0e1e4fD446f0ff |
 | [SoulSwapInterfaceMulticall.sol](https://ftmscan.com/address/0x1245Af167E1C2803b713af29F3C121b191a19366#code) | 0x1245Af167E1C2803b713af29F3C121b191a19366 |
+| [SoulBond.sol](https://ftmscan.com/address/0xEdaECfc744F3BDeAF6556AEEbfcDedd79437a01F#code) | 0xEdaECfc744F3BDeAF6556AEEbfcDedd79437a01F |
 
 ----
 
